@@ -1,0 +1,58 @@
+@import "~styles/_mixins.scss";
+
+.custom-select-container {
+  display: flex;
+  align-items: center;
+
+  .loader-custom {
+    border: 3px solid #02b6c4;
+    border-radius: 50%;
+    border-top: 3px solid #fff;
+    width: 17px;
+    height: 17px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    margin-left: 10px;
+  }
+
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .blue-dot {
+    position: relative;
+    &::before{
+      font-family: FontAwesome;
+      position: absolute;
+      top: -3px;
+      left: 10px;
+      content: "\F111";
+      font-size: 6px;
+      color: #02bcd2;
+      z-index: 2;
+    }
+  }
+
+  .disabled-select {
+    cursor: not-allowed;
+  }
+
+  .react-select__menu-list {
+    @include style-scrollbar(10px);
+  }
+}
