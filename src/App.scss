@@ -1,5 +1,11 @@
+@import "./styles/_mixins.scss";
+
 .App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  @include style-scrollbar(8px, 8px)
 }
 
 .App-logo {

@@ -1,6 +1,20 @@
-.form-container {
-  position: absolute;
-  margin: 50%;
-  transform: translate(-50%, -50%);
+.container {
+  position: relative;
+  min-width: 330px;
+  max-width: 500px;
+  width: 50vw;
+  background: white;
+  border-radius: 10px;
+  padding: 162px 20px 20px 20px;
+  margin: auto;
+  margin-top: 125px;
+  margin-bottom: 50px;
+  box-shadow: 5px 5px 50px grey;
+}
 
+.custom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin: -10px 0;
 }

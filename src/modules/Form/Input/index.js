@@ -3,19 +3,31 @@ import PropTypes from "prop-types";
 import "./Input.scss";
 
 class Input extends PureComponent {
-  state = {
-    showPassword: false,
-  };
 
   static propTypes = {
-    inputType: PropTypes.string,
-    showPasswordCheckbox: PropTypes.bool,
-    inputHeight: PropTypes.number,
-    variant: PropTypes.oneOf(["primary", "secondary"]),
+    name: PropTypes.string,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]).isRequired,
+    inputType: PropTypes.string.isRequired,
+    label: PropTypes.string,
+    onChange: PropTypes.func,
+    onClick: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+    onKeyPress: PropTypes.func,
+    min: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+    maxLength: PropTypes.string,
+
   };
 
   static defaultProps = {
     inputType: 'text',
+    value: "",
   };
 
   togglePassword = () => {
@@ -26,26 +38,23 @@ class Input extends PureComponent {
 
   render() {
     const {
-      value, name, onChange, disabled, className, inputType,
-      placeholder, hasError, isRequired, errorMessage, width,
-      showPasswordCheckbox, showErrorTooltip, min, inputHeight,
-      variant,
-
-      label, pattern, maxLength,
+      value, name, onChange, inputType, min,
+       label, maxLength, onFocus, onBlur, onKeyPress, onClick,
     } = this.props;
-    const { showPassword } = this.state;
     return (
-      <div className="input-container width-100">
-        <label htmlFor={name}>{label}</label>
+      <div className="input-container">
+        {label}
         <input
           name={name}
           value={value}
+          onKeyPress={onKeyPress}
+          onClick={onClick}
           onChange={onChange}
-          className={`input-custom input-${variant} ${className}`}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          className={`input-custom`}
           type={inputType}
           min={min}
-          pattern={pattern}
-          placeholder={placeholder}
           maxLength={maxLength}
         />
       </div>

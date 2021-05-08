@@ -1,0 +1,74 @@
+
+.animate-text {
+    width: 12px;
+    position: relative;
+    color: white;
+
+    .old1 {
+        position: absolute;
+        top: 100%;
+        opacity: 0;
+        animation: move-text-center-down 0.2s;
+    }
+
+    .new1 {
+        position: absolute;
+        top: 0;
+        opacity: 1;
+        animation: move-text-top-center 0.2s;
+    }
+
+    .old2 {
+        position: absolute;
+        top: -100%;
+        opacity: 0;
+        animation: move-text-center-up 0.2s;
+    }
+    
+    .new2 {
+        position: absolute;
+        top: 0;
+        opacity: 1;
+        animation: move-text-down-center 0.2s;
+    }
+}
+
+
+
+@keyframes move-text-center-down {
+    0% {
+        top: 0;
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes move-text-top-center {
+    0% {
+        top: -100%;
+        opacity: 0;
+    }
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes move-text-center-up {
+    0% {
+        top: 0;
+        opacity: 1;
+    }
+    100% {
+        top: -100%;
+        opacity: 0;
+    }
+}
+
+@keyframes move-text-down-center {
+    from { top: 100%; opacity: 0; }
+    to { top: 0; opacity: 1; }
+}
